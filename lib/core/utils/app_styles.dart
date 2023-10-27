@@ -13,7 +13,7 @@ abstract class CustomTextStyles
 
     static const  poppins500Style24 = TextStyle(
       fontSize: 24,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.bold,
       color: AppColors.black,
       fontFamily: "Poppins"
     );

@@ -1,6 +1,5 @@
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 import '../../../../core/utils/app_styles.dart';
 import '../../../on_boarding/presentation/view/screens/on_boarding_view.dart';
@@ -16,7 +15,7 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   void initState() {
-    navigateFromSplash();
+    navigateFromSplash(context);
     super.initState();
   }
   @override
@@ -29,8 +28,10 @@ class _SplashViewState extends State<SplashView> {
   }
 }
 
-void navigateFromSplash() {
+void navigateFromSplash(BuildContext context) {
     Future.delayed(const Duration(seconds: 2),(){
-      Get.to(const OnBoardingView(), transition: Transition.leftToRight);
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context){
+        return const OnBoardingView();
+      }));
     });
   }
