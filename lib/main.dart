@@ -1,4 +1,5 @@
 import 'package:dalel_app/core/database/caches/cache_helper.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,7 +7,8 @@ import 'core/utils/app_colors.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  await CachHelper().init();
+  setupServiceLocator();
+  await getIt<CachHelper>().init();
   runApp(const Dalel());
 }
 

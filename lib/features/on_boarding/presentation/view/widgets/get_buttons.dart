@@ -7,6 +7,7 @@ import '../../../../../core/widgets/custom_button.dart';
 import '../../../../auth/presentation/views/signin_view.dart';
 import '../../../../auth/presentation/views/signup_view.dart';
 import '../../../data/models/onboarding_model.dart';
+import '../functions/on_boarding_visited.dart';
 
 class GetButtons extends StatelessWidget {
   const GetButtons({super.key, required this.currentIndex, required this.controller});
@@ -22,6 +23,7 @@ class GetButtons extends StatelessWidget {
                         CustomButton(
                           text: "Create account",
                           onPressed: () {
+                            onBoardingVisited();
                             Get.to(() => const SignUpView());
                           },
                         ),
@@ -30,6 +32,7 @@ class GetButtons extends StatelessWidget {
                         ),
                         InkWell(
                           onTap: () {
+                            onBoardingVisited();
                             Get.to(()=> const SignInView());
                           },
                           child: Text(

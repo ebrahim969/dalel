@@ -2,6 +2,7 @@ import 'package:dalel_app/core/database/caches/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../auth/presentation/views/signup_view.dart';
+import '../functions/on_boarding_visited.dart';
 import '../widgets/custom_nav_bar.dart';
 import '../widgets/get_buttons.dart';
 import '../widgets/on_boarding_view_body.dart';
@@ -30,7 +31,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
               CustomNavBar(
                 onTap: () {
-                  CachHelper().saveData(key: "isOnBoardingVisited", value: true);
+                  onBoardingVisited();
                   Get.to(() => const SignUpView());
                 },
               ),

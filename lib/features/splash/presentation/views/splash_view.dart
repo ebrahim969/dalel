@@ -3,6 +3,7 @@ import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/features/auth/presentation/views/signup_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/services/service_locator.dart';
 import '../../../../core/utils/app_styles.dart';
 import '../../../on_boarding/presentation/view/screens/on_boarding_view.dart';
 
@@ -17,7 +18,7 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     bool isOnBoardingVisited =
-        CachHelper().getData(key: "isOnBoardingVisited") ?? false;
+        getIt<CachHelper>().getData(key: "isOnBoardingVisited") ?? false;
     if (isOnBoardingVisited == true) {
       navigateFromSplash(context, const SignUpView());
     } else {
