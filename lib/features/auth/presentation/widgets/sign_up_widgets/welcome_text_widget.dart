@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/app_strings.dart';
-import '../../../../core/utils/app_styles.dart';
+import '../../../../../core/utils/app_strings.dart';
+import '../../../../../core/utils/app_styles.dart';
 
 class WelcomeTextWidget extends StatelessWidget {
   const WelcomeTextWidget({super.key});
