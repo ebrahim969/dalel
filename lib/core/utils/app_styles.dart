@@ -17,6 +17,12 @@ abstract class CustomTextStyles
       color: AppColors.black,
       fontFamily: "Poppins"
     );
+    static const  poppins400Style12 = TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+      color: AppColors.deepGray,
+      fontFamily: "Poppins"
+    );
 
     static const  poppins300Style16 = TextStyle(
       fontSize: 16,
