@@ -9,3 +9,5 @@ class AuthFailure extends AuthState {
 
   AuthFailure(this.errMessage);
 }
+class AuthCheckBoxState extends AuthState{}
+class ObscurePasswordTextUpdateState extends AuthState{}
