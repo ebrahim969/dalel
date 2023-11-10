@@ -1,10 +1,13 @@
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/features/auth/presentation/cubits/cubit/auth_cubit.dart';
 import 'package:dalel_app/features/auth/presentation/cubits/cubit/auth_state.dart';
+import 'package:dalel_app/features/auth/presentation/views/signin_view.dart';
 import 'package:dalel_app/features/auth/presentation/widgets/sign_up_widgets/terms_and_condition_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import '../../../../../core/functions/show_toast.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../../../../core/widgets/custom_button.dart';
 import 'custom_txt_field.dart';
@@ -23,6 +26,14 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
     
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
+        if(state is AuthSuccess)
+        {
+          showToast("Account created successfuly");
+          Get.to(()=> const SignInView());
+        }else if(state is AuthFailure)
+        {
+          showToast(state.errMessage);
+        }
       },
       builder: (context, state) {
        AuthCubit authCubit = context.read<AuthCubit>();
@@ -90,7 +101,8 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
           const TermsAndConditionWidget(),
 
           SizedBox(height: Get.height * .07),
-
+          state is AuthLoading ? const CircularProgressIndicator(color: AppColors.primaryColor,)
+          :
           CustomButton(
               text: AppStrings.signIn,
               backgroundColor: authCubit.termsAndConditionCkeckValue == false ? AppColors.gray: null,
@@ -117,4 +129,5 @@ class _CustomSignUpFormState extends State<CustomSignUpForm> {
     );
        
   }
+
 }
